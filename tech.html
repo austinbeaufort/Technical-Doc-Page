@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Technical Documentation CSS</title>
+	<link rel="stylesheet" href="tech.css">
+</head>
+<body>
+<nav id="navbar">
+  <header>
+    <h2>How CSS Works</h2>
+  </header>
+  <ul>
+    <a class="nav-link" href="#What_is_CSS?" rel="internal"><li>What is CSS?</li></a>
+    <a class="nav-link" href="#How_does_CSS_affect_HTML?" rel="internal"><li> How does CSS affect HTML?</li></a>
+    <a class="nav-link" href="#How_does_CSS_actually_work?" rel="internal"><li>How does CSS actually work?</li></a>
+    <a class="nav-link" href="#About_the_DOM?" rel="internal"><li>About the DOM?</li></a>
+    <a class="nav-link" href="#How_to_apply_your_CSS" rel="internal"><li>How to apply your CSS</li></a>
+    <a class="nav-link" href="#What_is_Next?" rel="internal"><li>What is Next?</li></a>
+    <a class="nav-link" href="#Reference" rel="internal"><li>Reference</li></a>
+  </ul>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="What_is_CSS?">
+    <header>
+      <br>
+      <h3 id="starter">What is CSS?</h3>
+    </header>
+    <p>
+      As we have mentioned before, CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.
+    </p>
+      <p>
+        A document is usually a text file structured using a markup language — HTML is the most common markup language, but you will also come across other markup languages such as SVG or XML.
+    </p>
+      <p>
+      Presenting a document to a user means converting it into a usable form for your audience. Browsers, like Firefox, Chrome or Internet Explorer, are designed to present documents visually, for example, on a computer screen, projector or printer.
+    </p>
+  </section>
+   <section class="main-section" id="How_does_CSS_affect_HTML?">
+    <header>
+      <h3>How does CSS affect HTML?</h3>
+    </header>
+     <p>Web browsers apply CSS rules to a document to affect how they are displayed. A CSS rule is formed from:</p>
+     <li>A set of properties, which have values set to update how the HTML content is displayed, for example I want my element's width to be 50% of its parent element, and its background to be red.</li>
+     <li>A selector, which selects the element(s) you want to apply the updated property values to. For example, I want to apply my CSS rule to all the paragraphs in my HTML document.</li>
+     <p>A set of CSS rules contained within a stylesheet determines how a webpage should look. You will learn a lot more about what CSS syntax looks like in the next article of the module — CSS Syntax.</p>
+     <p>The above descriptions may or may not have made sense, so let's make sure things are clear by presenting a quick example of how to create a link from CSS to HTML:</p>
+     <pre>
+     <code>
+      rel="stylesheet" href="style.css"
+     </code>
+     </pre>
+     <p>Now let's look at a very simple CSS example containing two rules:</p>
+     <pre>
+     <code>
+       h1 {
+  color: blue;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+p {
+  color: red;
+}
+     </code>
+     </pre>
+   <p>The first rule starts with an h1 selector, which means that it will apply its property values to the h1 element. It contains three properties and their values (each property/value pair is called a declaration):</p>
+     <li>The first one sets the text color to blue.</li>
+     <li>The second sets the background color to yellow.</li>
+     <li>The third one puts a border around the header that is 1 pixel wide, solid (not dotted, or dashed, etc.), and colored black.</li>
+     <p>The second rule starts with a p selector, which means that it will apply its property values to the p element. It contains one declaration, which sets the text color to red.</p>
+  </section>
+  <section class="main-section" id="How_does_CSS_actually_work?">
+    <header>
+      <h3>How does CSS actually work?</h3>
+    </header>
+    <p>When a browser displays a document, it must combine the document's content with its style information. It processes the document in two stages:</p>
+    <li>The browser converts HTML and CSS into the DOM (Document Object Model). The DOM represents the document in the computer's memory. It combines the document's content with its style.</li>
+    <li>The browser displays the contents of the DOM.</li>
+  </section>
+  <section class="main-section" id="About_the_DOM?">
+    <header>
+      <h3>About the DOM?</h3>
+    </header>
+    <p>A DOM has a tree-like structure. Each element, attribute and piece of text in the markup language becomes a DOM node in the tree structure. The nodes are defined by their relationship to other DOM nodes. Some elements are parents of child nodes, and child nodes have siblings.</p>
+    <p>Understanding the DOM helps you design, debug and maintain your CSS because the DOM is where your CSS and the document's content meet up.</p>
+    <p>Rather than a long, boring explanation, let's take an example to see how the DOM and CSS work together.
+Let's assume the following HTML code:
+      <pre>
+      <code>
+  [p]
+  Let's use:
+  [span] Cascading [/span]
+  [span] Style [/span]
+  [span] Sheets [/span]
+  [/p]
+  </code>
+  </pre>
+  <p>In the DOM, the node corresponding to our p element is a parent. Its children are a text node and the nodes corresponding to our span elements. The SPAN nodes are also parents, with text nodes as their children:[p] </p>
+    <pre>
+    <code>
+    P
+├─ "Let's use:"
+├─ SPAN
+|  └─ "Cascading"
+├─ SPAN
+|  └─ "Style"
+└─ SPAN
+   └─ "Sheets"
+   </code>
+   </pre>
+    <p>If we apply the following CSS to it:</p>
+    <pre>
+    <code>
+    span {
+  border: 1px solid black;
+  background-color: lime;
+}
+    </code>
+    </pre>
+    
+  <p>The browser will parse the HTML and create a DOM from it, then parse the CSS.</p>
+     <section class="main-section" id="How_to_apply_your_CSS">
+    <header>
+      <h3>How to apply your CSS</h3>
+    </header>
+       <p>You've already seen external stylesheets in this article, but not by that name. An external stylesheet is when you have your CSS written in a separate file with a .css extension, and you reference it from an HTML link element. The CSS file looks something like this:</p>
+       <pre>
+       <code>
+       h1 {
+  color: blue;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+p {
+  color: red;
+}
+      </code>
+      </pre>
+  <p>This method is arguably the best, as you can use one stylesheet to style multiple documents, and would only need to update the CSS in one place if changes were needed.</p>
+  <p>An internal stylesheet is where you don't have an external CSS file, but instead place your CSS inside a style element, contained inside the HTML head. So the HTML would look like this:</p>
+       <pre>
+       <code>
+       [style]
+      h1 {
+        color: blue;
+        background-color: yellow;
+        border: 1px solid black;
+      }
+
+      p {
+        color: red;
+      }
+    [/style]
+    </code>
+    </pre>
+  <p>This can be useful in some circumstances (maybe you're working with a content management system where you can't modify the CSS files directly), but it isn't quite as efficient as external stylesheets — in a website, the CSS would need to be repeated across every page, and updated in multiple places if changes were required.</p>
+   <p>Inline styles are CSS declarations that affect one element only, contained within a style attribute:</p>
+       <pre>
+       <code>
+       h1 style="color: blue;background-color: yellow;border: 1px solid black;"
+       p style="color:red;"
+       </code>
+       </pre>
+       
+ <p>Please don't do this, unless you really have to! It is really bad for maintenance (you might have to update the same information multiple times per document), and it also mixes your presentational CSS information with your HTML structural information, making the CSS harder to read and understand. Keeping your different types of code separated and pure makes for a much easier job for all who work on the code.
+The only time you might have to resort to using inline styles is when your working environment is really restrictive (perhaps your CMS only allows you to edit the HTML body.) </p>
+    </section>
+     <section class="main-section" id="What_is_Next?">
+    <header>
+      <h3>What is Next?</h3>
+    </header>
+     <p>At this point you should understand the basics of how CSS works, and how browsers deal with it. Next, you'll move on to learn about CSS syntax.</p>
+    </section>
+    <section class="main-section" id="Reference">
+    <header>
+      <h3>Reference</h3>
+    </header>
+      <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/How_CSS_works" target="_blank">MDN</a></li>
+</main>
+</body>
+</html>

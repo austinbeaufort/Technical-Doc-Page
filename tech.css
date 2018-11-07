@@ -1,0 +1,79 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+pre{
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin-bottom: 10px;
+  overflow: auto;
+  width: auto;
+  padding: 5px;
+  background-color: #eee;
+  width: 650px!ie7;
+  padding-bottom: 20px!ie7;
+  max-height: 600px;
+}
+
+p {
+  color: #52527a;
+  font-size: 18px;
+}
+
+section li {
+  color: #52527a;
+  font-size: 18px;
+}
+
+li {
+  color: #52527a;
+}
+
+#navbar {
+  position: fixed;
+  border-right: 4px solid gray;
+  padding-right: 5px;
+  height: 100%;
+}
+
+#nav ul {
+  overflow-y: aut0;
+}
+
+#navbar a {
+  list-style: none;
+  padding: 0px 40px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#navbar li {
+  border-bottom: 2px solid gray;
+}
+
+#navbar li:hover {
+  background-color: #e3e8ef;
+  color: black;
+}
+
+#main-doc {
+  margin-left: 330px;
+}
+
+header h2 {
+  padding-left: 40px;
+  border-bottom: 2px solid gray;
+  font-size: 25px;
+}
+
+header h3 {
+  font-size: 25px;
+}
+
+@media (min-width: 600px) {
+  p {
+    font-size: 20px;
+  }
+  section li {
+    fonto-size: 20px;
+  }
+}
